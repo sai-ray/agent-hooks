@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "name": "Notify on Agent Done",
+  "description": "Plays a system sound when the agent finishes its response, so you don't have to keep watching.",
+  "version": "1",
+  "when": {
+    "type": "agentStop"
+  },
+  "then": {
+    "type": "runCommand",
+    "command": "afplay /System/Library/Sounds/Glass.aiff"
+  }
+}
