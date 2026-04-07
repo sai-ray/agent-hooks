@@ -1,14 +1,16 @@
 {
   "enabled": true,
   "name": "Code Review",
-  "version": "1.0.0",
   "description": "Automatically reviews code after the agent writes or edits a file, checking for bugs, security issues, and best practices.",
+  "version": "1",
   "when": {
     "type": "postToolUse",
-    "toolTypes": ["write"]
+    "toolTypes": [
+      "write"
+    ]
   },
   "then": {
     "type": "askAgent",
-    "prompt": "Review the code you just wrote. Check for: potential bugs, security issues (hardcoded secrets, injection risks), missing error handling, unused imports, and any obvious improvements. Be brief — only flag real issues, not style nitpicks."
+    "prompt": "Look at the code you just wrote. If it was a small or trivial change (renaming, fixing a typo, updating a single value, adding an import, minor formatting), skip the review and say nothing. Only review if the change was substantial — new logic, multiple lines of code, structural changes, or new functions/classes. When reviewing, check for: potential bugs, security issues (hardcoded secrets, injection risks), missing error handling, unused imports, and obvious improvements. Be brief — only flag real issues."
   }
 }
